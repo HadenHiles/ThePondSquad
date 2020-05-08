@@ -24,12 +24,12 @@ $user = $params['user'];
 </div>
 <div>
 	<label> <?php echo ossn_print('email'); ?> </label>
-	<input type='text' name="email" value="<?php echo $user->email; ?>"/>
+	<input type='text' name="email" value="<?php echo $user->email; ?>" style="background:#E8E9EA;" readonly="readonly"/>
 </div>
 <div>
 	<label> <?php echo ossn_print('password'); ?>  </label>
 	<input type='password' name="password" value=""/>
-</div>    
+</div>
 <?php
 $fields = ossn_prepare_user_fields($user);
 if($fields){

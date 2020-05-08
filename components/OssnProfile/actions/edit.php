@@ -62,18 +62,18 @@ $params['values'] = array(
     $user['lastname'],
     $user['email']
 );
-//check if email is not in user
-if($entity->email !== input('email')){
-  if($OssnUser->isOssnEmail()){
-    ossn_trigger_message(ossn_print('email:inuse'), 'error');
-    redirect(REF);
-  }
-}
-//check if email is valid email 
-if(!$OssnUser->isEmail()){
-    ossn_trigger_message(ossn_print('email:invalid'), 'error');
-    redirect(REF);	
-}
+// //check if email is not in user
+// if($entity->email !== input('email')){
+//   if($OssnUser->isOssnEmail()){
+//     ossn_trigger_message(ossn_print('email:inuse'), 'error');
+//     redirect(REF);
+//   }
+// }
+// //check if email is valid email
+// if(!$OssnUser->isEmail()){
+//     ossn_trigger_message(ossn_print('email:invalid'), 'error');
+//     redirect(REF);
+// }
 //check if password then change password
 if (!empty($password)) {
     if (!$OssnUser->isPassword()) {
@@ -85,14 +85,14 @@ if (!empty($password)) {
     $params['names'] = array(
         'first_name',
         'last_name',
-        'email',
+        // 'email',
         'password',
         'salt'
     );
     $params['values'] = array(
         $user['firstname'],
         $user['lastname'],
-        $user['email'],
+        // $user['email'],
         $password,
         $salt
     );
@@ -120,4 +120,4 @@ if ($OssnDatabase->update($params)) {
     }
     ossn_trigger_message($success, 'success');
     redirect(REF);
-} 
+}
